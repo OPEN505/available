@@ -1,11 +1,13 @@
 package org.available.map;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  *
- * Static {@code Map} tools class.
+ * 静态{@code Map}工具类
  *
  * <p/>
  * License: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>
@@ -15,36 +17,62 @@ import java.util.Map;
  * @version 1.0.0
  * @since 1.8
  */
-public class Maps {
+public final class Maps {
 
-    private Maps(){}
+    private Maps() {}
 
     /**
-     * Creates <i>mutable</i>, empty {@code HashMap} instance.
-     *
-     * @return a new, empty {@code HashMap}
+     * 创建一个新的{@code HashMap}实例
+     * @return 新的且空的{@code HashMap}实例
      */
     public static <K, V> HashMap<K, V> newHashMap() {
         return new HashMap<>();
     }
 
     /**
-     * Creates <i>mutable</i>, empty {@code HashMap} instance.
-     *
-     * Copy a {@link Map} instance data to created {@code HashMap} instance.
-     *
-     * @return a new {@code HashMap} instance after copy data.
+     * 拷贝{@code Map}中的数据到新创建的{@code HashMap}实例中
+     * @return 拷贝数据后的{@code HashMap}实例
      */
     public static <K, V> HashMap<K, V> newHashMap(Map<K, V> map) {
         return new HashMap<>(map);
     }
 
     /**
-     * Get first key in {@link Map} instance.
-     *
-     * @return first key in map.
+     * 创建一个新的{@code LinkedHashMap}实例
+     * @return 一个新的、空的{@code LinkedHashMap}实例
      */
-    public static <K,V> V getFirstKey(Map<K,V> map) {
+    public static <K, V> LinkedHashMap<K, V> newLinkedHashMap() {
+        return new LinkedHashMap<>();
+    }
+
+    /**
+     * 拷贝{@code Map}中的数据到新创建的{@code LinkedHashMap}中
+     * @return 拷贝数据后的{@code HashMap}实例
+     */
+    public static <K, V> LinkedHashMap<K, V> newLinkedHashMap(Map<K, V> map) {
+        return new LinkedHashMap<>(map);
+    }
+
+    /**
+     * 创建一个新的{@code ConcurrentHashMap}实例
+     * @return 一个新的、空的{@code ConcurrentHashMap}实例
+     */
+    public static <K, V> ConcurrentHashMap<K, V> newConcurrentHashMap() {
+        return new ConcurrentHashMap<>();
+    }
+
+    /**
+     * 拷贝{@code Map}中的数据到新的{@code ConcurrentHashMap}实例中
+     * @return 拷贝数据后的{@code ConcurrentHashMap}实例
+     */
+    public static <K, V> ConcurrentHashMap<K, V> newConcurrentHashMap(Map<K, V> map) {
+        return new ConcurrentHashMap<>(map);
+    }
+
+    /**
+     * 获取{@code Map}中的第一个Key
+     */
+    public static <K, V> V getFirstKey(Map<K, V> map) {
         for (Object o : map.keySet()) {
             return (V) o;
         }
@@ -52,11 +80,9 @@ public class Maps {
     }
 
     /**
-     * Get first value in {@link Map} instance.
-     *
-     * @return first value in {@link Map} instance.
+     * 获取{@code Map}中的第一个值
      */
-    public static <K,V> V getFirstValue(Map<K,V> map) {
+    public static <K, V> V getFirstValue(Map<K, V> map) {
         for (Object value : map.values()) {
             return (V) value;
         }
@@ -64,11 +90,9 @@ public class Maps {
     }
 
     /**
-     * Get key by index in {@link Map} instance.
-     *
-     * @return the index key.
+     * 根据下标获取{@code Map}中的Key
      */
-    public static <K,V> V getKey(Map<K,V> map, int index) {
+    public static <K, V> V getKey(Map<K, V> map, int index) {
         int count = 0;
         for (Object value : map.keySet()) {
             if (count == index) return (V) value;
@@ -78,11 +102,9 @@ public class Maps {
     }
 
     /**
-     * Get value by index in {@link Map} instance.
-     *
-     * @return the index value.
+     * 根据下标获取{@code Map}中的Value
      */
-    public static <K,V> V getValue(Map<K,V> map, int index) {
+    public static <K, V> V getValue(Map<K, V> map, int index) {
         int count = 0;
         for (Object value : map.values()) {
             if (count == index) return (V) value;

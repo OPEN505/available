@@ -1,13 +1,10 @@
 package org.available.list;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 /**
  *
- * Static {@code List} tools class.
+ * List静态工具类
  *
  * <p/>
  * License: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>
@@ -17,62 +14,60 @@ import java.util.Vector;
  * @version 1.0.0
  * @since 1.8
  */
-public class Lists {
+public final class Lists {
 
     /**
-     * Creates <i>mutable</i>, {@code ArrayList} instance.
-     * @return empty {@code ArrayList} instance.
+     * 创建一个可变的 {@code ArrayList}
+     * @return 空的 {@code ArrayList} 实例
      */
     public static <E> ArrayList<E> newArrayList() {
         return new ArrayList<>();
     }
 
     /**
-     * Creates <i>mutable</i>, {@code ArrayList} instance.
+     * 创建一个可变的 {@code ArrayList}
+     * 复制一个{@link List}中的数据到新的{@code List}中
      *
-     * Copy a {@link List} instance data to created {@code ArrayList} instance.
-     *
-     * @return a new {@code ArrayList} instance after copying data.
+     * @return 新的List且带有传入List数据的实例
      */
-    public static <E> ArrayList<E> newArrayList(List<E> list){
-        return new ArrayList<>(list);
+    public static <E> ArrayList<E> newArrayList(Collection<? extends E> collection) {
+        return new ArrayList<>(collection);
     }
 
     /**
-     * Creates <i>mutable</i>, {@code LinkedList} instance.
-     *
-     * Copy a {@link List} instance data to created {@code LinkedList} instance.
-     * @return a new {@code LinkedList} instance after copying data.
+     * 创建一个可变的 {@code LinkedList}
+     * @return 空的 {@code LinkedList} 实例
      */
     public static <E> LinkedList<E> newLinkedList() {
         return new LinkedList<>();
     }
 
     /**
-     * Creates <i>mutable</i>
-     * @return a new {@code LinkedList} instance after copy data.
+     * 创建一个可变的 {@code LinkedList}
+     * 复制一个{@link List}中的数据到新的{@code LinkedList}中
+     *
+     * @return 新的List且带有传入List数据的实例
      */
-    public static <E> LinkedList<E> newLinkedList(List<E> list) {
-        return new LinkedList<>(list);
+    public static <E> LinkedList<E> newLinkedList(Collection<? extends E> collection) {
+        return new LinkedList<>(collection);
     }
 
     /**
-     * Creates <i>mutable</i>, empty {@code Vector} instance.
-     * @return empty {@code Vector} instance.
+     * 创建一个可变的 {@code Vector}
+     * @return 空的 {@code Vector} 实例.
      */
     public static <E> Vector<E> newVector() {
         return new Vector<>();
     }
 
     /**
-     * Creates <i>mutable</i>, {@code Vector} instance.
+     * 创建一个可变的 {@code Vector}
+     * 复制一个{@link Vector}中的数据到新的{@code Vector}中
      *
-     * Copy a {@link List} instance data to created {@code Vector} instance.
-     *
-     * @return a new {@code Vector} instance after copying data.
+     * @return 新的{@code Vector}且带有传入{@code Vector}数据的实例
      */
-    public static <E> Vector<E> newVector(List<E> list) {
-        return new Vector<>(list);
+    public static <E> Vector<E> newVector(Collection<? extends E> collection) {
+        return new Vector<>(collection);
     }
 
 }
