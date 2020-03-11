@@ -2,8 +2,8 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
-version '1.0.0.FUCK'
+group 'org.raniaia'
+version '1.0.0.STAR'
 
 repositories {
     mavenCentral()
