@@ -31,9 +31,9 @@ public class Maps {
     /**
      * Creates <i>mutable</i>, empty {@code HashMap} instance.
      *
-     * Copy a {@link Map} instance to created {@code HashMap} instance.
+     * Copy a {@link Map} instance data to created {@code HashMap} instance.
      *
-     * @return a new {@code HashMap} instance after copy.
+     * @return a new {@code HashMap} instance after copy data.
      */
     public static <K, V> HashMap<K, V> newHashMap(Map<K, V> map) {
         return new HashMap<>(map);
@@ -44,9 +44,9 @@ public class Maps {
      *
      * @return first key in map.
      */
-    public static Object getFirstKey(Map map) {
+    public static <K,V> V getFirstKey(Map<K,V> map) {
         for (Object o : map.keySet()) {
-            return o;
+            return (V) o;
         }
         return null;
     }
@@ -56,9 +56,9 @@ public class Maps {
      *
      * @return first value in {@link Map} instance.
      */
-    public static Object getFirstValue(Map map) {
+    public static <K,V> V getFirstValue(Map<K,V> map) {
         for (Object value : map.values()) {
-            return value;
+            return (V) value;
         }
         return null;
     }
@@ -68,10 +68,10 @@ public class Maps {
      *
      * @return the index key.
      */
-    public static Object getKey(Map map, int index) {
+    public static <K,V> V getKey(Map<K,V> map, int index) {
         int count = 0;
         for (Object value : map.keySet()) {
-            if (count == index) return value;
+            if (count == index) return (V) value;
             count++;
         }
         return null;
@@ -82,10 +82,10 @@ public class Maps {
      *
      * @return the index value.
      */
-    public static Object getValue(Map map, int index) {
+    public static <K,V> V getValue(Map<K,V> map, int index) {
         int count = 0;
         for (Object value : map.values()) {
-            if (count == index) return value;
+            if (count == index) return (V) value;
             count++;
         }
         return null;
