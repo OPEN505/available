@@ -72,9 +72,9 @@ public final class Maps {
     /**
      * 获取{@code Map}中的第一个Key
      */
-    public static <K, V> V getFirstKey(Map<K, V> map) {
-        for (Object o : map.keySet()) {
-            return (V) o;
+    public static <K, V> K getFirstKey(Map<K, V> map) {
+        for (K key : map.keySet()) {
+            return key;
         }
         return null;
     }
@@ -83,8 +83,29 @@ public final class Maps {
      * 获取{@code Map}中的第一个值
      */
     public static <K, V> V getFirstValue(Map<K, V> map) {
-        for (Object value : map.values()) {
-            return (V) value;
+        for (V value : map.values()) {
+            return value;
+        }
+        return null;
+    }
+
+    /**
+     * 删除{@code Map}中的第一条数据，返回Key
+     */
+    public static <K,V> K removeFirstKey(Map<K,V> map){
+        for (K key : map.keySet()) {
+            map.remove(key);
+            return key;
+        }
+        return null;
+    }
+
+    /**
+     * 删除{@code Map}中的第一条数据，返回Value
+     */
+    public static <K, V> V removeFirstValue(Map<K, V> map) {
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            return map.remove(entry.getKey());
         }
         return null;
     }
@@ -92,10 +113,10 @@ public final class Maps {
     /**
      * 根据下标获取{@code Map}中的Key
      */
-    public static <K, V> V getKey(Map<K, V> map, int index) {
+    public static <K, V> K getKey(Map<K, V> map, int index) {
         int count = 0;
-        for (Object value : map.keySet()) {
-            if (count == index) return (V) value;
+        for (K key : map.keySet()) {
+            if (count == index) return key;
             count++;
         }
         return null;
@@ -106,8 +127,8 @@ public final class Maps {
      */
     public static <K, V> V getValue(Map<K, V> map, int index) {
         int count = 0;
-        for (Object value : map.values()) {
-            if (count == index) return (V) value;
+        for (V value : map.values()) {
+            if (count == index) return value;
             count++;
         }
         return null;

@@ -14,7 +14,7 @@ import java.util.*;
  * @version 1.0.0
  * @since 1.8
  */
-public class Sets {
+public final class Sets {
 
     /**
      * 创建一个新的且空的{@code HashSet}实例
