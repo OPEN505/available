@@ -1,0 +1,23 @@
+{
+  "datasource": {
+    "url": "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT",
+    "driver": "com.mysql.cj.jdbc.Driver",
+    "username": "root",
+    "password": "root"
+  },
+
+  "template": {
+    "service": "default",
+    "serviceImpl": "default",
+    "controller": "default",
+    "java_bean": "default",
+    "java_mapper": "default",
+    "mapper_xml": "default"
+  },
+
+  "comment": {
+      "author": "TianSheng",
+      "date": "yyyy-MM-dd HH:ss:mm"
+  }
+
+}
