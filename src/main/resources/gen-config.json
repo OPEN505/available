@@ -5,16 +5,30 @@
     "username": "root",
     "password": "root"
   },
-
   "template": {
-    "service": "default",
-    "serviceImpl": "default",
-    "controller": "default",
-    "java_bean": "default",
-    "java_mapper": "default",
-    "mapper_xml": "default"
+    "service": {
+      "gen-path": "/service"
+    },
+    "serviceImpl": {
+      "gen-path": "/service/impl"
+    },
+    "controller": {
+      "gen-path": "/controller"
+    },
+    "java_bean": {
+      "gen-path": "/vo"
+    },
+    "java_mapper": {
+      "gen-path": "/mapper"
+    },
+    "mapper_xml": {
+      "gen-path": "/resources/mapper"
+    },
+    "rest_controller": {
+      "gen-path": "/controller/api",
+      "template-path": "/resources/RestController.java.ftl"
+    }
   },
-
   "comment": {
       "author": "TianSheng",
       "date": "yyyy-MM-dd HH:ss:mm"

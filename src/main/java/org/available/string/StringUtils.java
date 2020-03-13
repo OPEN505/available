@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * @version 1.0.0
  * @since 1.8
  */
-public final class StringUtils {
+public class StringUtils {
 
     /**
      * 字符串是否为空
@@ -31,7 +31,7 @@ public final class StringUtils {
         if ("\u0000".equals(s)) {
             return true;
         }
-        return s.length() == 0 || "".equals(s) || " ".equals("");
+        return s.length() == 0 || " ".equals(s);
     }
 
     public static boolean isNull(String input) {
@@ -179,7 +179,7 @@ public final class StringUtils {
      * @param index
      * @return
      */
-    public static String UpperCase(String input, int index) {
+    public static String upperCase(String input, int index) {
         StringBuilder builder = new StringBuilder(input);
         String value = new String(new char[]{input.charAt(index - 1)}).toUpperCase();
         builder.replace(0, 1, value);
@@ -191,15 +191,47 @@ public final class StringUtils {
      * @param index
      * @return
      */
-    public static String LowerCase(String input, int index) {
+    public static String lowerCase(String input, int index) {
         StringBuilder builder = new StringBuilder(input);
         String value = new String(new char[]{input.charAt(index - 1)}).toLowerCase();
         builder.replace(0, 1, value);
         return builder.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(UpperCase("productName", 1));
+    /**
+     * 驼峰转下划线
+     *
+     * @param string
+     * @return
+     */
+    public static String humpToUnderline(String string) {
+        StringBuilder builder = new StringBuilder(string);
+        int temp = 0; // 定位
+        for (int i = 0, len = string.length(); i < len; i++) {
+            if (Character.isUpperCase(string.charAt(i))) {
+                builder.insert(i + temp, "_");
+                temp++;
+            }
+        }
+        return builder.toString().toLowerCase();
+    }
+
+    /**
+     * 下划线转驼峰
+     *
+     * @param string
+     * @return
+     */
+    public static String underlineToHump(String string) {
+        StringBuilder builder = new StringBuilder();
+        String[] strs = string.split("_");
+        builder.append(strs[0]);
+        for (int i = 1; i < strs.length; i++) {
+            StringBuilder v = new StringBuilder(strs[i]);
+            v.replace(0, 1, String.valueOf(v.charAt(0)).toUpperCase());
+            builder.append(v);
+        }
+        return builder.toString();
     }
 
 }

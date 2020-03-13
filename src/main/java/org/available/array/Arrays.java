@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * Copyright: Create by TianSheng on 2019/12/13 18:36
  */
-public final class Arrays {
+public class Arrays {
 
     /**
      * 一些常用的变量
