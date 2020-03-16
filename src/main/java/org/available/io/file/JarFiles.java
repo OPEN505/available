@@ -20,8 +20,4 @@ public class JarFiles {
         return Files.read(Streams.newFileInputStream(path));
     }
 
-    public static void main(String[] args) {
-        readExternal("/config/gen-config.json");
-    }
-
 }
