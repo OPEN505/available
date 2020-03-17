@@ -1,5 +1,7 @@
 package org.available.io.file;
 
+import lombok.SneakyThrows;
+
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -51,8 +53,6 @@ public class Files {
 
     /**
      * 通过{@code URL}来读取文件数据，并返回{@code String}对象
-     * @param url
-     * @return
      */
     public static String read(URL url) {
         return read(url.toExternalForm().replace("file:/", ""));
@@ -84,8 +84,25 @@ public class Files {
         }
     }
 
-    public static void main(String[] args) {
-        write("E:/test.txt", "tiansheng");
+    /**
+     * 创建一个{@code FileWrite}对象，默认会判断路径是否存在，然后
+     * 如果不存在则会进行创建。创建后返回{@code FileWrite}流。
+     *
+     * @param path          文件所在的文件夹
+     * @param filename      文件名，需要携带后缀
+     * @return 一个{@code FileWrite}对象
+     */
+    @SneakyThrows
+    public static FileWriter newFileWrite(String path,String filename){
+        File file0 = new File(path);
+        if(!file0.exists()){
+            file0.mkdirs();
+        }
+        File file = new File(path.concat("/").concat(filename));
+        if(!file.exists()){
+            file.createNewFile();
+        }
+        return new FileWriter(file);
     }
 
 }
