@@ -1,5 +1,7 @@
 package org.available.io;
 
+import lombok.SneakyThrows;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -9,13 +11,9 @@ import java.io.FileNotFoundException;
  */
 public class Streams {
 
-    public static FileInputStream newFileInputStream(String path){
-        try {
-            return new FileInputStream(path);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
+    @SneakyThrows
+    public static FileInputStream newFileInputStream(String path) {
+        return new FileInputStream(path);
     }
 
 }

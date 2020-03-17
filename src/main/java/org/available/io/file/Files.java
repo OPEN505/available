@@ -67,7 +67,7 @@ public class Files {
     public static boolean write(String path, String content) {
         FileWriter fileWriter = null;
         try {
-            fileWriter = new FileWriter(path, true);
+            fileWriter = newFileWrite(path, true);
             fileWriter.write(content);
             return true;
         } catch (IOException e) {
@@ -103,6 +103,14 @@ public class Files {
             file.createNewFile();
         }
         return new FileWriter(file);
+    }
+
+    /**
+     * 根据{@code path}创建一个{@code FileWrite}
+     */
+    @SneakyThrows
+    public static FileWriter newFileWrite(String path,boolean append){
+        return new FileWriter(path,append);
     }
 
 }
