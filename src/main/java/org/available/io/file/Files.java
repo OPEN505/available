@@ -113,4 +113,12 @@ public class Files {
         return new FileWriter(path,append);
     }
 
+    /**
+     * 根据{@code file}创建一个{@code FileWrite}
+     */
+    @SneakyThrows
+    public static FileWriter newFileWrite(File file){
+        return new FileWriter(file);
+    }
+
 }

@@ -41,7 +41,7 @@ public class Arrays {
     }
 
     /**
-     * 对象转数组
+     * 对象转数组, 传入的对象必须是数组转成的。
      */
     public static Object[] toArray(Object array) {
         if (!isArray(array)) return null;
