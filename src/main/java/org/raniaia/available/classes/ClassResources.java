@@ -31,38 +31,52 @@ import java.net.URL;
  */
 public class ClassResources {
 
+    Class<?> caller;
+
+    @SneakyThrows
+    private ClassResources(){
+        StackTraceElement[] stacks = Thread.currentThread().getStackTrace();
+        this.caller = Class.forName(stacks[stacks.length-1].getClassName());
+    }
+
+    private ClassResources(Class<?> caller){
+        this.caller = caller;
+    }
+
     /**
      * Get resource {@link ClassLoader#getResource} to {@link URL}.
      */
-    public static URL toURL(){
+    public URL toURL(){
         return toURL("");
     }
 
     /**
      * Get resource {@link ClassLoader#getResource} to {@link URL}.
      */
-    public static URL toURL(String name){
-        return caller().getResource(name);
+    public URL toURL(String name){
+        return caller.getResource(name);
     }
 
     /**
      * Get resource {@link ClassLoader#getResource} to {@link File}.
      */
-    public static File toFile(){
+    public File toFile(){
         return Files.newFile(toURL());
     }
 
     /**
      * Get resource {@link ClassLoader#getResource} to {@link File}.
      */
-    public static File toFile(String name){
+    public File toFile(String name){
         return Files.newFile(toURL(name));
     }
 
-    @SneakyThrows
-    static Class<?> caller(){
-        StackTraceElement[] stacks = Thread.currentThread().getStackTrace();
-        return Class.forName(stacks[stacks.length-1].getClassName());
+    public static ClassResources caller(){
+        return new ClassResources();
+    }
+
+    public static ClassResources caller(Class<?> caller){
+        return new ClassResources(caller);
     }
 
 }

@@ -31,7 +31,7 @@ import java.io.File;
 public class ClassResourcesTest {
 
     public static void main(String[] args) {
-        File file = ClassResources.toFile();
+        File file = ClassResources.caller().toFile();
         System.out.println();
     }
 
