@@ -1,18 +1,31 @@
 package org.available.list;
 
+/*
+ * Copyright (C) 2020 Tiansheng All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * Creates on 2020/3/11 18:27
+ */
+
 import java.util.*;
 
 /**
+ * Static {@link List} tools class.
  *
- * List静态工具类
- *
- * <p/>
- * License: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>
- * <p/>
- * Copyright: Create by TianSheng on 2020/3/11 15:36
  * @author TianSheng
- * @version 1.0.0
- * @since 1.8
  */
 public final class Lists {
 

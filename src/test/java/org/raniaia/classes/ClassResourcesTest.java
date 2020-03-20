@@ -1,4 +1,4 @@
-package org.available.io;
+package org.raniaia.classes;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -17,28 +17,22 @@ package org.available.io;
  */
 
 /*
- * Creates on 2020/3/13 1:09
+ * Creates on 2020/3/20 15:02
  */
 
-import lombok.SneakyThrows;
+
+import org.available.classes.ClassResources;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 /**
- * Stream static tools class.
+ * @author tiansheng
  */
-public class Streams {
+public class ClassResourcesTest {
 
-    @SneakyThrows
-    public static FileInputStream newFileInputStream(File file) {
-        return new FileInputStream(file);
-    }
-
-    @SneakyThrows
-    public static FileInputStream newFileInputStream(String path) {
-        return new FileInputStream(path);
+    public static void main(String[] args) {
+        File file = ClassResources.toFile();
+        System.out.println();
     }
 
 }
