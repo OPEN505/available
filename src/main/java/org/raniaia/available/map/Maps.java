@@ -1,4 +1,4 @@
-package org.available.map;
+package org.raniaia.available.map;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.

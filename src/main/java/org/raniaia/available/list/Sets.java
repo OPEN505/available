@@ -1,4 +1,4 @@
-package org.available.list;
+package org.raniaia.available.list;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.

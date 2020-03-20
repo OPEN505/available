@@ -1,4 +1,4 @@
-package org.available.classes;
+package org.raniaia.available.classes;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -21,7 +21,7 @@ package org.available.classes;
  */
 
 import lombok.SneakyThrows;
-import org.available.io.file.Files;
+import org.raniaia.available.io.file.Files;
 
 import java.io.File;
 import java.net.URL;

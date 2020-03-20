@@ -1,4 +1,4 @@
-package org.available.string;
+package org.raniaia.available.string;
 
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;

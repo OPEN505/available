@@ -1,4 +1,4 @@
-package org.available.io;
+package org.raniaia.available.io;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -24,7 +24,6 @@ import lombok.SneakyThrows;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 /**
  * Stream static tools class.

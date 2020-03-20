@@ -21,7 +21,7 @@ package org.raniaia.classes;
  */
 
 
-import org.available.classes.ClassResources;
+import org.raniaia.available.classes.ClassResources;
 
 import java.io.File;
 

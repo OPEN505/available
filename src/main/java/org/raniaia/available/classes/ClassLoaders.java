@@ -1,4 +1,4 @@
-package org.available.classes;
+package org.raniaia.available.classes;
 
 import java.net.URL;
 

@@ -1,11 +1,8 @@
-package org.available.array;
+package org.raniaia.available.array;
 
 import lombok.SneakyThrows;
 
 import java.lang.reflect.Array;
-import java.math.BigDecimal;
-import java.security.InvalidParameterException;
-import java.util.ArrayList;
 
 /**
  * 静态数组工具类

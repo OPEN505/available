@@ -1,6 +1,6 @@
-package org.available.io.file;
+package org.raniaia.available.io.file;
 
-import org.available.io.Streams;
+import org.raniaia.available.io.Streams;
 
 /**
  * jar包内部进行文件相关操作的静态工具类

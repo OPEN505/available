@@ -1,6 +1,6 @@
 package org.raniaia.maps;
 
-import org.available.map.Maps;
+import org.raniaia.available.map.Maps;
 import org.junit.Test;
 
 import java.util.Map;
