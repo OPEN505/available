@@ -24,6 +24,7 @@ import lombok.SneakyThrows;
 import org.raniaia.available.list.Lists;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -39,14 +40,32 @@ public class Methods {
      * Get methods by {@link Class} instance.
      */
     public static Method[] getMethods(Class<?> target) {
-        return target.getMethods();
+        return getMethods(target, false);
+    }
+
+    /**
+     * Get methods by {@link Class} instance.
+     */
+    public static Method[] getMethods(Class<?> target, boolean accessible) {
+        Method[] methods = target.getMethods();
+        for (int i = 0; i < methods.length; i++) methods[i].setAccessible(accessible);
+        return methods;
     }
 
     /**
      * Get declared methods by {@link Class} instance.
      */
     public static Method[] getDeclaredMethods(Class<?> target) {
-        return target.getDeclaredMethods();
+        return getDeclaredMethods(target, false);
+    }
+
+    /**
+     * Get declared methods by {@link Class} instance.
+     */
+    public static Method[] getDeclaredMethods(Class<?> target, boolean accessible) {
+        Method[] methods = target.getDeclaredMethods();
+        for (int i = 0; i < methods.length; i++) methods[i].setAccessible(accessible);
+        return methods;
     }
 
     /**
@@ -84,23 +103,34 @@ public class Methods {
      */
     @SneakyThrows
     public static Object invoke(Method method, Object... args) {
-        setAccessible(method);
         Class clazz = method.getDeclaringClass();
         Object instance = clazz.newInstance();
         return method.invoke(instance, args);
     }
 
     /**
+     * Invoke.
+     */
+    @SneakyThrows
+    public static Object invoke(Method method, boolean accessible, Object... args) {
+        setAccessible(method, accessible);
+        Class clazz = method.getDeclaringClass();
+        Object instance = clazz.newInstance();
+        return method.invoke(instance, args);
+    }
+
+
+    /**
      * Set method accessible, default {@code Boolean#true}.
      */
-    public static void setAccessible(Method method){
+    public static void setAccessible(Method method) {
         method.setAccessible(true);
     }
 
     /**
      * Set method accessible.
      */
-    public static void setAccessible(Method method,boolean flag){
+    public static void setAccessible(Method method, boolean flag) {
         method.setAccessible(flag);
     }
 

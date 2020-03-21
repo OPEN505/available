@@ -1,4 +1,4 @@
-package org.raniaia.classes;
+package org.raniaia.relfect;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -17,22 +17,28 @@ package org.raniaia.classes;
  */
 
 /*
- * Creates on 2020/3/20 15:02
+ * Creates on 2020/3/21 17:30
  */
 
-
-import org.raniaia.available.classes.ClassResources;
-
-import java.io.File;
+import org.raniaia.available.reflect.ClassUtils;
 
 /**
  * @author tiansheng
  */
-public class ClassResourcesTest {
+public class ClassUtilsTest {
+
+    static public class A {
+        public A() {
+            System.out.println("无参构造器");
+        }
+
+        public A(String name) {
+            System.out.println("有参构造器，参数: " + name);
+        }
+    }
 
     public static void main(String[] args) {
-        File file = ClassResources.caller().toFile();
-        System.out.println();
+        ClassUtils.newInstance(A.class,new Class[]{String.class},"张三");
     }
 
 }
