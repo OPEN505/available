@@ -21,6 +21,7 @@ package org.raniaia.available.io.file;
  */
 
 import lombok.SneakyThrows;
+import org.raniaia.available.AvailTool;
 
 import java.io.*;
 import java.net.URI;
@@ -37,7 +38,7 @@ public class Files {
      * By <b>path#string</b>.
      */
     public static File newFile(String path) {
-        return new File(path);
+        return new File(AvailTool.toClasspath(path));
     }
 
     /**
@@ -82,7 +83,7 @@ public class Files {
      */
     public static String read(String path) {
         try {
-            return read(new FileInputStream(path));
+            return read(new FileInputStream(AvailTool.toClasspath(path)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -101,6 +102,7 @@ public class Files {
      * true write success, false write failure.
      */
     public static boolean write(String path, String content) {
+        path = AvailTool.toClasspath(path);
         FileWriter fileWriter = null;
         try {
             fileWriter = newFileWrite(path, true);
@@ -126,6 +128,7 @@ public class Files {
      */
     @SneakyThrows
     public static FileWriter newFileWrite(String path,String filename){
+        path = AvailTool.toClasspath(path);
         File file0 = new File(path);
         if(!file0.exists()){
             file0.mkdirs();
@@ -142,7 +145,7 @@ public class Files {
      */
     @SneakyThrows
     public static FileWriter newFileWrite(String path,boolean append){
-        return new FileWriter(path,append);
+        return new FileWriter(AvailTool.toClasspath(path),append);
     }
 
     /**
@@ -151,6 +154,22 @@ public class Files {
     @SneakyThrows
     public static FileWriter newFileWrite(File file){
         return new FileWriter(file);
+    }
+
+    /**
+     * Creates new {@code FileInputStream} object instance by {@code File} instance.
+     */
+    @SneakyThrows
+    public static FileInputStream newFileInputStream(File file) {
+        return new FileInputStream(file);
+    }
+
+    /**
+     * Creates new {@code FileInputStream} object instance by {@code path} instance.
+     */
+    @SneakyThrows
+    public static FileInputStream newFileInputStream(String path) {
+        return new FileInputStream(AvailTool.toClasspath(path));
     }
 
 }

@@ -1,4 +1,4 @@
-package org.raniaia.available.io;
+package org.raniaia.available;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -17,27 +17,31 @@ package org.raniaia.available.io;
  */
 
 /*
- * Creates on 2020/3/13 1:09
+ * Creates on 2020/3/23 20:25
  */
 
-import lombok.SneakyThrows;
-
-import java.io.File;
-import java.io.FileInputStream;
+import java.util.Objects;
 
 /**
- * Stream static tools class.
+ * @author tiansheng
  */
-public class Streams {
+public class AvailTool {
 
-    @SneakyThrows
-    public static FileInputStream newFileInputStream(File file) {
-        return new FileInputStream(file);
+    /**
+     * Replace the classpath: string in path string with {@link OpCodes#USER_DIR}.
+     */
+    public static String toClasspath(String path){
+        if(Objects.requireNonNull(path,"path cannot null.").contains("classpath:")){
+            path = path.replace("classpath:",getClasspath());
+        }
+        return path;
     }
 
-    @SneakyThrows
-    public static FileInputStream newFileInputStream(String path) {
-        return new FileInputStream(path);
+    /**
+     * Get current project relative path.
+     */
+    public static String getClasspath(){
+        return OpCodes.USER_DIR.concat("/src/main/resources");
     }
 
 }

@@ -1,4 +1,4 @@
-package org.raniaia.available.io.file;
+package org.raniaia.available;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -17,24 +17,25 @@ package org.raniaia.available.io.file;
  */
 
 /*
- * Creates on 2020/3/23 19:59
+ * Creates on 2020/3/23 20:01
  */
+
+import java.util.Objects;
 
 /**
- * Static {@code File} tools in jar.
+ * Operation constant variable.
  * @author tiansheng
  */
-public class JarFiles {
+public interface OpCodes {
 
     /**
-     * Read files outside the jar package or inside
-     * the jar package.
-     *
-     * If "classpath:" string exists in {@param path}, it will
-     * be replaced with the resources directory.
+     * User dir property.
      */
-    public static String read(String path) {
-        return Files.read(path);
-    }
+    String USER_DIR = System.getProperty("user.dir");
+
+    /**
+     * {@code classpath} value is <code>user.dir</code>
+     */
+    String CLASSPATH = "classpath:";
 
 }
