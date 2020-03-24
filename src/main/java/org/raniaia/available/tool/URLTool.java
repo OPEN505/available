@@ -1,4 +1,4 @@
-package org.raniaia.available;
+package org.raniaia.available.tool;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -17,31 +17,14 @@ package org.raniaia.available;
  */
 
 /*
- * Creates on 2020/3/23 20:25
+ * Creates on 2020/3/24 0:35
  */
-
-import java.util.Objects;
 
 /**
  * @author tiansheng
  */
-public class AvailTool {
+public class URLTool {
 
-    /**
-     * Replace the classpath: string in path string with {@link OpCodes#USER_DIR}.
-     */
-    public static String toClasspath(String path){
-        if(Objects.requireNonNull(path,"path cannot null.").contains("classpath:")){
-            path = path.replace("classpath:",getClasspath());
-        }
-        return path;
-    }
 
-    /**
-     * Get current project relative path.
-     */
-    public static String getClasspath(){
-        return OpCodes.USER_DIR.concat("/src/main/resources");
-    }
 
 }

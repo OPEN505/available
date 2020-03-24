@@ -21,7 +21,7 @@ package org.raniaia.available.io.file;
  */
 
 import lombok.SneakyThrows;
-import org.raniaia.available.AvailTool;
+import org.raniaia.available.Available;
 
 import java.io.*;
 import java.net.URI;
@@ -38,7 +38,7 @@ public class Files {
      * By <b>path#string</b>.
      */
     public static File newFile(String path) {
-        return new File(AvailTool.toClasspath(path));
+        return new File(Available.toClasspath(path));
     }
 
     /**
@@ -83,7 +83,7 @@ public class Files {
      */
     public static String read(String path) {
         try {
-            return read(new FileInputStream(AvailTool.toClasspath(path)));
+            return read(new FileInputStream(Available.toClasspath(path)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -102,7 +102,7 @@ public class Files {
      * true write success, false write failure.
      */
     public static boolean write(String path, String content) {
-        path = AvailTool.toClasspath(path);
+        path = Available.toClasspath(path);
         FileWriter fileWriter = null;
         try {
             fileWriter = newFileWrite(path, true);
@@ -128,7 +128,7 @@ public class Files {
      */
     @SneakyThrows
     public static FileWriter newFileWrite(String path,String filename){
-        path = AvailTool.toClasspath(path);
+        path = Available.toClasspath(path);
         File file0 = new File(path);
         if(!file0.exists()){
             file0.mkdirs();
@@ -145,7 +145,7 @@ public class Files {
      */
     @SneakyThrows
     public static FileWriter newFileWrite(String path,boolean append){
-        return new FileWriter(AvailTool.toClasspath(path),append);
+        return new FileWriter(Available.toClasspath(path),append);
     }
 
     /**
@@ -169,7 +169,7 @@ public class Files {
      */
     @SneakyThrows
     public static FileInputStream newFileInputStream(String path) {
-        return new FileInputStream(AvailTool.toClasspath(path));
+        return new FileInputStream(Available.toClasspath(path));
     }
 
 }
