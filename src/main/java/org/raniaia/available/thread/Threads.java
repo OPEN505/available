@@ -29,6 +29,9 @@ import lombok.SneakyThrows;
  */
 public class Threads {
 
+    /**
+     * Find the caller of your method.
+     */
     @SneakyThrows
     public static Class<?> getCaller() {
         StackTraceElement[] elements = Thread.currentThread().getStackTrace();
