@@ -22,8 +22,6 @@ package org.raniaia.available;
 
 import org.raniaia.available.thread.Threads;
 
-import java.io.File;
-import java.net.URL;
 import java.util.Objects;
 
 /**
