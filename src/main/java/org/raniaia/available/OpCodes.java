@@ -17,25 +17,19 @@ package org.raniaia.available;
  */
 
 /*
- * Creates on 2020/3/23 20:01
+ * Creates on 2020/3/23.
  */
 
 import java.util.Objects;
 
 /**
- * Operation constant variable.
+ * 操作常量。
  * @author tiansheng
  */
 public interface OpCodes {
 
-    /**
-     * User dir property.
-     */
-    String USER_DIR = System.getProperty("user.dir");
+    String          CLASSPATH            = "classpath:";
+    String          USER_DIR             = System.getProperty("user.dir");
 
-    /**
-     * {@code classpath} value is <code>user.dir</code>
-     */
-    String CLASSPATH = "classpath:";
 
 }

@@ -17,7 +17,7 @@ package org.raniaia.available.compile;
  */
 
 /*
- * Creates on 2020/3/24 15:27
+ * Creates on 2020/3/24.
  */
 
 import javax.tools.SimpleJavaFileObject;

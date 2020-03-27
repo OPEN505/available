@@ -17,7 +17,7 @@ package org.raniaia.available.reflect;
  */
 
 /*
- * Creates on 2020/3/21 14:52
+ * Creates on 2020/3/21.
  */
 
 import lombok.SneakyThrows;
@@ -30,7 +30,7 @@ import java.lang.reflect.Constructor;
 public class ClassUtils {
 
     /**
-     * Creates a instance.
+     * 创建一个实例。
      */
     @SneakyThrows
     public static Object newInstance(Class<?> clazz){
@@ -38,10 +38,10 @@ public class ClassUtils {
     }
 
     /**
-     * Creates a instance and passing constructor parameter.
+     * 创建一个实例并传递构造函数参数。
      *
-     * @param parametersType constructor parameters type.
-     * @param parametersValue constructor parameters.
+     * @param parametersType 构造函数参数类型。
+     * @param parametersValue 构造函数参数值。
      */
     @SneakyThrows
     public static Object newInstance(Class<?> clazz,Class<?>[] parametersType,

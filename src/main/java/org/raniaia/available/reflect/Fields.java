@@ -17,7 +17,7 @@ package org.raniaia.available.reflect;
  */
 
 /*
- * Creates on 2020/3/21 14:17
+ * Creates on 2020/3/21.
  */
 
 import lombok.SneakyThrows;
@@ -28,19 +28,19 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 /**
- * Static {@link Field} tools class.
+ * 静态{@link Field}工具类。
  */
 public class Fields {
 
     /**
-     * Get {@link Field} in the {@param target}.
+     * 在{@param target}中获取{@link Field}。
      */
     public static Field[] getFields(Class<?> target) {
         return getFields(target, false);
     }
 
     /**
-     * Get {@link Field} in the {@param target}.
+     * 在{@param target}中获取{@link Field}。
      */
     public static Field[] getFields(Class<?> target, boolean accessible) {
         Field[] fields = target.getFields();
@@ -51,7 +51,7 @@ public class Fields {
     }
 
     /**
-     * Get {@link Field} by {@param annotations}.
+     * 通过{@param annotations}获取{@link Field}。
      */
     public static Field[] getFields(Class<?> target,
                                     Class<? extends Annotation>[] annotations) {
@@ -59,7 +59,7 @@ public class Fields {
     }
 
     /**
-     * Get {@link Field} by {@param annotations}.
+     * 通过{@param annotations}获取{@link Field}。
      */
     public static Field[] getFields(Class<?> target,
                                     Class<? extends Annotation>[] annotations,
@@ -68,14 +68,14 @@ public class Fields {
     }
 
     /**
-     * Get declared {@link Field} in the {@param target}.
+     * 在{@param target}中获取声明的{@link Field}。
      */
     public static Field[] getDeclaredFields(Class<?> target) {
         return getDeclaredFields(target, false);
     }
 
     /**
-     * Get declared {@link Field} in the {@param target}.
+     * 在{@param target}中获取声明的{@link Field}。
      */
     public static Field[] getDeclaredFields(Class<?> target, boolean accessible) {
         Field[] fields = target.getDeclaredFields();
@@ -86,7 +86,7 @@ public class Fields {
     }
 
     /**
-     *  Get declared {@link Field} by {@param annotations}.
+     *  通过{@param annotations}获取声明的{@link Field}。
      */
     public static Field[] getDeclaredFields(Class<?> target,
                                             Class<? extends Annotation>[] annotations) {
@@ -94,7 +94,7 @@ public class Fields {
     }
 
     /**
-     *  Get declared {@link Field} by {@param annotations}.
+     *  通过{@param annotations}获取声明的{@link Field}。
      */
     public static Field[] getDeclaredFields(Class<?> target,
                                             Class<? extends Annotation>[] annotations,
@@ -103,9 +103,9 @@ public class Fields {
     }
 
     /**
-     * Get fields by {@param annotations}.
+     * 通过{@param annotations}获取字段。
      *
-     * The {@param accessible} is {@link Field#setAccessible}
+     * {@param accessible}是{@link Field＃setAccessible}
      */
     public static Field[] getFieldsByAnnotation(Field[] fields,
                                                 Class<? extends Annotation>[] annotations) {
@@ -124,7 +124,7 @@ public class Fields {
     }
 
     /**
-     * filed value set.
+     * 设置{@code Filed}的值。
      */
     @SneakyThrows
     public static void set(Object instance,Object value,Field field){

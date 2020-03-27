@@ -17,7 +17,7 @@ package org.raniaia.relfect;
  */
 
 /*
- * Creates on 2020/3/21 17:30
+ * Creates on 2020/3/21.
  */
 
 import org.raniaia.available.reflect.ClassUtils;

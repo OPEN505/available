@@ -17,20 +17,20 @@ package org.raniaia.available.thread;
  */
 
 /*
- * Creates on 2020/3/24 0:30
+ * Creates on 2020/3/24.
  */
 
 import lombok.SneakyThrows;
 
 /**
- * Static {@code Thread} tool.
+ * 静态{@code Thread}工具。
  *
  * @author tiansheng
  */
 public class Threads {
 
     /**
-     * Find the caller of your method.
+     * 获取方法的调用者。
      */
     @SneakyThrows
     public static Class<?> getCaller() {

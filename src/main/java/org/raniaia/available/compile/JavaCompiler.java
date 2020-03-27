@@ -17,7 +17,7 @@ package org.raniaia.available.compile;
  */
 
 /*
- * Creates on 2020/3/24 15:22
+ * Creates on 2020/3/24.
  */
 
 import javax.tools.JavaFileObject;
@@ -35,11 +35,12 @@ import java.util.Arrays;
 public class JavaCompiler {
 
     /**
-     * Compile to {@code Class} instance.
+     * 将String类型的字符串编译成Java代码并返回Class对象。
      *
-     * @param fullClassname     full class name.
-     * @param code              class code string.
-     * @return                  {@code Class} object instance.
+     * @param fullClassname     全类名。
+     * @param code              需要编译的字符串源码.
+     *
+     * @return                  {@code Class}对象实例.
      */
     public Class<?> compile(String fullClassname, String code) {
         javax.tools.JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();

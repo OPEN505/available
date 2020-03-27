@@ -1,4 +1,4 @@
-package org.raniaia.available.io.file;
+package org.raniaia.Paths.io.file;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -17,11 +17,11 @@ package org.raniaia.available.io.file;
  */
 
 /*
- * Creates on 2020/3/12 21:25
+ * Creates on 2020/3/12.
  */
 
 import lombok.SneakyThrows;
-import org.raniaia.available.Available;
+import org.raniaia.available.io.Paths;
 
 import java.io.*;
 import java.net.URI;
@@ -34,23 +34,23 @@ import java.nio.charset.StandardCharsets;
 public class Files {
 
     /**
-     * Creates <i>mutable</i> the {@code File} instance.
-     * By <b>path#string</b>.
+     * 创建一个可变的{@code File}对象示例。
+     * 根据 <b>path#string</b>去创建。
      */
     public static File newFile(String path) {
-        return new File(Available.toClasspath(path));
+        return new File(Paths.toClasspath(path));
     }
 
     /**
-     * Creates <i>mutable</i> the {@code File} instance.
-     * By <b>uri#URI</b>.
+     * 创建一个可变的{@code File}对象示例。
+     * 根据 <b>uri#URI</b>去创建。
      */
     public static File newFile(URI uri) {
         return new File(uri);
     }
     /**
-     * Creates <i>mutable</i> the {@code File} instance.
-     * By <b>url#URL</b>.
+     * 创建一个可变的{@code File}对象示例。
+     * 根据 < <b>url#URL</b>去创建。
      */
     @SneakyThrows
     public static File newFile(URL url) {
@@ -58,7 +58,7 @@ public class Files {
     }
 
     /**
-     * Read file data via {@code InputStream}, and return {@code String}.
+     * 通过{@link InputStream}获取文件数据，返回{@link String}类型。
      */
     public static String read(InputStream input) {
         if (input == null) throw new NullPointerException();
@@ -79,11 +79,11 @@ public class Files {
     }
 
     /**
-     * Read file data via path, and return {@code String}
+     * 读取文件数据根据文件路径去获取，返回{@link String}类型。
      */
     public static String read(String path) {
         try {
-            return read(new FileInputStream(Available.toClasspath(path)));
+            return read(new FileInputStream(Paths.toClasspath(path)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -91,18 +91,18 @@ public class Files {
     }
 
     /**
-     * Read file data via {@code URL}, and return {@code String}
+     * 读取文件数据根据{@link URL}去获取，返回{@link String}类型。
      */
     public static String read(URL url) {
         return read(url.toExternalForm().replace("file:/", ""));
     }
 
     /**
-     * Write data to the specified file. and return {@code boolean}
-     * true write success, false write failure.
+     * 将数据写入指定的文件。并返回{@code boolean}
+     * true: 写入成功，false: 写入失败。
      */
     public static boolean write(String path, String content) {
-        path = Available.toClasspath(path);
+        path = Paths.toClasspath(path);
         FileWriter fileWriter = null;
         try {
             fileWriter = newFileWrite(path, true);
@@ -123,12 +123,11 @@ public class Files {
     }
 
     /**
-     * Creates a new {@code FileWrite} object instance. this method will
-     * judge path whether exist. if not exist will create directory and file.
+     * 创建一个新的{@code FileWrite}对象实例。该方法将判断路径是否存在。如果不存在，将创建目录和文件。
      */
     @SneakyThrows
     public static FileWriter newFileWrite(String path,String filename){
-        path = Available.toClasspath(path);
+        path = Paths.toClasspath(path);
         File file0 = new File(path);
         if(!file0.exists()){
             file0.mkdirs();
@@ -141,15 +140,15 @@ public class Files {
     }
 
     /**
-     * Creates a new {@code FileWrite} object instance by path, and {@code append}.
+     * 按路径创建一个新的{@code FileWrite}对象实例，并{@code append}。
      */
     @SneakyThrows
     public static FileWriter newFileWrite(String path,boolean append){
-        return new FileWriter(Available.toClasspath(path),append);
+        return new FileWriter(Paths.toClasspath(path),append);
     }
 
     /**
-     * Creates new {@code FileWrite} object instance by {@code File} instance.
+     * 通过{@code File}实例创建新的{@code FileWrite}对象实例。
      */
     @SneakyThrows
     public static FileWriter newFileWrite(File file){
@@ -157,7 +156,7 @@ public class Files {
     }
 
     /**
-     * Creates new {@code FileInputStream} object instance by {@code File} instance.
+     * 通过{@code File}实例创建新的{@code FileInputStream}对象实例。
      */
     @SneakyThrows
     public static FileInputStream newFileInputStream(File file) {
@@ -165,11 +164,11 @@ public class Files {
     }
 
     /**
-     * Creates new {@code FileInputStream} object instance by {@code path} instance.
+     * 通过{@code path}实例创建新的{@code FileInputStream}对象实例。
      */
     @SneakyThrows
     public static FileInputStream newFileInputStream(String path) {
-        return new FileInputStream(Available.toClasspath(path));
+        return new FileInputStream(Paths.toClasspath(path));
     }
 
 }

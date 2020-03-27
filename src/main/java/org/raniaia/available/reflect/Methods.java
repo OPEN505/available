@@ -17,7 +17,7 @@ package org.raniaia.available.reflect;
  */
 
 /*
- * Creates on 2020/3/20 23:48
+ * Creates on 2020/3/20.
  */
 
 import lombok.SneakyThrows;
@@ -37,14 +37,14 @@ import java.util.List;
 public class Methods {
 
     /**
-     * Get methods by {@link Class} instance.
+     * 通过{@link Class}实例获取方法。
      */
     public static Method[] getMethods(Class<?> target) {
         return getMethods(target, false);
     }
 
     /**
-     * Get methods by {@link Class} instance.
+     * 通过{@link Class}实例获取方法。
      */
     public static Method[] getMethods(Class<?> target, boolean accessible) {
         Method[] methods = target.getMethods();
@@ -53,14 +53,14 @@ public class Methods {
     }
 
     /**
-     * Get declared methods by {@link Class} instance.
+     * 通过{@link Class}实例获取声明的方法。
      */
     public static Method[] getDeclaredMethods(Class<?> target) {
         return getDeclaredMethods(target, false);
     }
 
     /**
-     * Get declared methods by {@link Class} instance.
+     * 通过{@link Class}实例获取声明的方法。
      */
     public static Method[] getDeclaredMethods(Class<?> target, boolean accessible) {
         Method[] methods = target.getDeclaredMethods();
@@ -69,8 +69,7 @@ public class Methods {
     }
 
     /**
-     * If the {@param method} has {@param annotations}, return the
-     * current annotation instance.
+     * 如果{@param method}具有{@param annotations}，则返回当前注解实例。
      */
     public static <T extends Annotation> T isAnnotation(Method method, Class<T> annotations) {
         if (method.isAnnotationPresent(annotations)) {
@@ -80,7 +79,7 @@ public class Methods {
     }
 
     /**
-     * Get methods by annotations, return if method has {@param annotations}.
+     * 根据注解来获取方法实例。
      */
     public static Method[] getMethodsByAnnotations(Class<?> target, Class<? extends Annotation>[] annotations) {
         List<Method> methodList = Lists.newArrayList();
@@ -98,9 +97,6 @@ public class Methods {
         return methods0;
     }
 
-    /**
-     * Invoke.
-     */
     @SneakyThrows
     public static Object invoke(Method method, Object... args) {
         Class clazz = method.getDeclaringClass();
@@ -108,9 +104,6 @@ public class Methods {
         return method.invoke(instance, args);
     }
 
-    /**
-     * Invoke.
-     */
     @SneakyThrows
     public static Object invoke(Method method, boolean accessible, Object... args) {
         setAccessible(method, accessible);
@@ -120,16 +113,10 @@ public class Methods {
     }
 
 
-    /**
-     * Set method accessible, default {@code Boolean#true}.
-     */
     public static void setAccessible(Method method) {
         method.setAccessible(true);
     }
 
-    /**
-     * Set method accessible.
-     */
     public static void setAccessible(Method method, boolean flag) {
         method.setAccessible(flag);
     }

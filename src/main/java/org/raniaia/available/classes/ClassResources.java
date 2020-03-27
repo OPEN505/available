@@ -17,17 +17,15 @@ package org.raniaia.available.classes;
  */
 
 /*
- * Creates on 2020/3/20 14:42
+ * Creates on 2020/3/20.
  */
 
 import lombok.SneakyThrows;
-import org.raniaia.available.io.file.Files;
-
 import java.io.File;
 import java.net.URL;
 
 /**
- * Static {@code ClassLoader#getResource} tools class.
+ * 静态{@code ClassLoader＃getResource}工具类。
  */
 public class ClassResources {
 
@@ -61,14 +59,14 @@ public class ClassResources {
      * Get resource {@link ClassLoader#getResource} to {@link File}.
      */
     public File toFile(){
-        return Files.newFile(toURL());
+        return org.raniaia.Paths.io.file.Files.newFile(toURL());
     }
 
     /**
      * Get resource {@link ClassLoader#getResource} to {@link File}.
      */
     public File toFile(String name){
-        return Files.newFile(toURL(name));
+        return org.raniaia.Paths.io.file.Files.newFile(toURL(name));
     }
 
     public static ClassResources caller(){

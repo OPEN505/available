@@ -1,4 +1,4 @@
-package org.raniaia.available;
+package org.raniaia.available.io;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -17,21 +17,22 @@ package org.raniaia.available;
  */
 
 /*
- * Creates on 2020/3/23 20:25
+ * Creates on 2020/3/28.
  */
 
+import org.raniaia.available.OpCodes;
 import org.raniaia.available.thread.Threads;
 
 import java.util.Objects;
 
 /**
- * Available tools.
+ * 关于路径的一些静态操作。
  * @author tiansheng
  */
-public class Available {
+public class Paths {
 
     /**
-     * Replace the classpath: string in path string with {@link OpCodes#USER_DIR}.
+     * 将'classpath:'字符串替换成当前编译后类文件的根路径。
      */
     public static String toClasspath(String path){
         if(Objects.requireNonNull(path,"path cannot null.").contains("classpath:")){
@@ -41,14 +42,10 @@ public class Available {
     }
 
     /**
-     * Get current project relative path.
+     * 获取当前classpath的路径
      */
     public static String getClasspath(){
         return Threads.getCaller().getClassLoader().getResource("").getFile();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(toClasspath("classpath:"));
     }
 
 }
