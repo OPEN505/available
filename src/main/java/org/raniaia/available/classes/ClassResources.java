@@ -21,6 +21,8 @@ package org.raniaia.available.classes;
  */
 
 import lombok.SneakyThrows;
+import org.raniaia.available.io.file.Files;
+
 import java.io.File;
 import java.net.URL;
 
@@ -59,14 +61,14 @@ public class ClassResources {
      * Get resource {@link ClassLoader#getResource} to {@link File}.
      */
     public File toFile(){
-        return org.raniaia.Paths.io.file.Files.newFile(toURL());
+        return Files.newFile(toURL());
     }
 
     /**
      * Get resource {@link ClassLoader#getResource} to {@link File}.
      */
     public File toFile(String name){
-        return org.raniaia.Paths.io.file.Files.newFile(toURL(name));
+        return Files.newFile(toURL(name));
     }
 
     public static ClassResources caller(){

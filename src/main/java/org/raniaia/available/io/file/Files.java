@@ -1,4 +1,4 @@
-package org.raniaia.Paths.io.file;
+package org.raniaia.available.io.file;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -39,6 +39,10 @@ public class Files {
      */
     public static File newFile(String path) {
         return new File(Paths.toClasspath(path));
+    }
+
+    public static void main(String[] args) {
+        newFile("a");
     }
 
     /**
