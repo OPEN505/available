@@ -44,28 +44,28 @@ public class ClassResources {
     }
 
     /**
-     * Get resource {@link ClassLoader#getResource} to {@link URL}.
+     * 通过{@link ClassLoader＃getResource}获取{@link URL}。
      */
     public URL toURL(){
         return toURL("");
     }
 
     /**
-     * Get resource {@link ClassLoader#getResource} to {@link URL}.
+     * 通过{@link ClassLoader＃getResource}获取{@link URL}。
      */
     public URL toURL(String name){
         return caller.getResource(name);
     }
 
     /**
-     * Get resource {@link ClassLoader#getResource} to {@link File}.
+     * 通过{@link ClassLoader＃getResource}获取{@link File}。
      */
     public File toFile(){
         return Files.newFile(toURL());
     }
 
     /**
-     * Get resource {@link ClassLoader#getResource} to {@link File}.
+     * 通过{@link ClassLoader＃getResource}获取{@link File}。
      */
     public File toFile(String name){
         return Files.newFile(toURL(name));
