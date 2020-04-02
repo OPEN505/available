@@ -55,7 +55,7 @@ public class StringUtils {
      * @param v 目标字符串
      * @return 返回该字符串的最后一个字符
      */
-    public static String getLastCharacter(String v) {
+    public static String getLast(String v) {
         return v.substring(v.length() - 1);
     }
 
@@ -65,8 +65,34 @@ public class StringUtils {
      * @param v 目标字符串
      * @return 返回处理后的字符串
      */
-    public static String deleteLastString(String v) {
+    public static String delLast(String v) {
         return v.substring(0, v.length() - 1);
+    }
+
+    /**
+     * 获取首字符
+     * @param v
+     * @return
+     */
+    public static String getFirst(String v) {
+        return v.substring(0, 1);
+    }
+
+    /**
+     * 删除第一个字符
+     *
+     * @param v 目标字符串
+     * @return 返回处理后的字符串
+     */
+    public static String delFirst(String v) {
+        return v.substring(1, v.length());
+    }
+
+    /**
+     * 删除首尾字符
+     */
+    public static String delHeadAndTail(String input){
+        return delFirst(delLast(input));
     }
 
     /**
@@ -77,15 +103,6 @@ public class StringUtils {
     public static boolean isNumber(String v) {
         Pattern pattern = Pattern.compile("[0-9]*");
         return pattern.matcher(v).matches();
-    }
-
-    /**
-     * 获取首字符
-     * @param v
-     * @return
-     */
-    public static String getFirstCharacter(String v) {
-        return v.substring(0, 1);
     }
 
     /**
@@ -111,8 +128,8 @@ public class StringUtils {
         char[] target = find.toCharArray();
         while (source.length >= currentIndex) {
             boolean result = true;
-            for (int i = 0; i < target.length; i++) {
-                if (source[currentIndex] == target[i]) {
+            for (char c : target) {
+                if (source[currentIndex] == c) {
                     result = true;
                 } else {
                     result = false;
