@@ -27,11 +27,8 @@ package org.raniaia.available.io.file;
 public class JarFiles {
 
     /**
-     * Read files outside the jar package or inside
-     * the jar package.
-     *
-     * If "classpath:" string exists in {@param path}, it will
-     * be replaced with the resources directory.
+     * 读取Jar包内部或外部的文件。
+     * 如果路径中存在"classpath:"字符串，他将被替换成资源目录。
      */
     public static String read(String path) {
         return Files.read(path);
