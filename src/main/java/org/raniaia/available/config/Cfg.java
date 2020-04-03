@@ -31,7 +31,31 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Reading .cfg file to {@code Map}.
+ * 读取.cfg后缀类型的配置文件。
+ * 文件格式为(config.cfg)：
+ * <code>
+ *     [user]
+ *     name = 法外狂徒：张三
+ *     age = 18
+ *     [parent]
+ *     dad = 李四
+ *     age = 50
+ * </code>
+ *
+ * 使用方法为，首先初始化构造器比如<code>new Cfg("c:/config.cfg")</code>，或者是new一个Cfg类，
+ * 然后通过{@link #load}方法进行初始化。和构造器有着相同的效果。
+ *
+ * 我们要获取上面配置中的内容就通过{@link #get}方法获取即可。比如我们获取user节点下的name。
+ * <code>
+ *     Cfg cfg = new Cfg("config.cfg");
+ *     //
+ *     // 第一个参数为根节点就是用大括号括起来的内容
+ *     // 第二个参数就是节点下的键值对。
+ *     //
+ *     cfg.get("user","name");
+ * </code>
+ *
+ *
  * @author tiansheng
  */
 public class Cfg {
