@@ -34,7 +34,7 @@ import java.util.Properties;
  * Reading .cfg file to {@code Map}.
  * @author tiansheng
  */
-public class Cfg extends Hashtable<Object,Object> {
+public class Cfg {
 
     Map<String, Map<String,Object>> cfg = Maps.newHashMap();
 
@@ -66,8 +66,10 @@ public class Cfg extends Hashtable<Object,Object> {
                 root = StringUtils.delHeadAndTail(value);
                 continue;
             }
-            String[] kv0 = value.split("=");
-            kv.put(kv0[0].trim(),kv0[1].trim());
+            int index = value.indexOf("=");
+            String k = value.substring(0,index);
+            String v = value.substring(index+1);
+            kv.put(k.trim(),v.trim());
         }
         cfg.put(root,Maps.newHashMap(kv));
         System.out.println();
@@ -75,12 +77,8 @@ public class Cfg extends Hashtable<Object,Object> {
 
     @SuppressWarnings("unchecked")
     public <T> T get(String root,String key){
-        return (T) cfg.get(root).get(key);
-    }
-
-    public static void main(String[] args) throws IOException {
-        Cfg cfg = new Cfg("E:\\IdeaProjects\\approve\\src\\main\\test\\resources\\approve.cfg");
-        System.out.println((String) cfg.get("jdbc","url"));
+        Map v = cfg.get(root);
+        return v == null ? null : (T) v.get(key);
     }
 
 }
