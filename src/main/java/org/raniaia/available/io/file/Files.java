@@ -175,4 +175,15 @@ public class Files {
         return new FileInputStream(Paths.toClasspath(path));
     }
 
+    /**
+     * 获取文件名后缀
+     */
+    public static String getSuffix(File file){
+        return getSuffix(file.getName());
+    }
+
+    public static String getSuffix(String name){
+        return name.substring(name.lastIndexOf(".") + 1);
+    }
+
 }

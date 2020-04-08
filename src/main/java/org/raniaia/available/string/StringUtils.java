@@ -109,8 +109,10 @@ public class StringUtils {
      * 清空StringBuilder
      * @param builder
      */
-    public static void clear(StringBuilder builder) {
+    public static String clear(StringBuilder builder) {
+        String v = builder.toString().trim();
         builder.delete(0, builder.length());
+        return v;
     }
 
     /**

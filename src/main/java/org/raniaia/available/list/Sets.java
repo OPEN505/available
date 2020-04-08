@@ -21,6 +21,8 @@ package org.raniaia.available.list;
  */
 
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.*;
 
 /**
@@ -58,6 +60,10 @@ public final class Sets {
      */
     public static <E> LinkedHashSet<E> newLinkedHashSet(Collection<? extends E> collection) {
         return new LinkedHashSet<>(collection);
+    }
+
+    public static String toString(Collection<?> list) {
+        return JSON.toJSONString(list);
     }
 
 }

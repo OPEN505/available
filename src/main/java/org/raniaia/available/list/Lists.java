@@ -20,6 +20,8 @@ package org.raniaia.available.list;
  * Creates on 2020/3/11.
  */
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.*;
 
 /**
@@ -113,4 +115,7 @@ public final class Lists {
         return new Vector<>(Arrays.asList(es));
     }
 
+    public static String toString(List<?> list) {
+        return JSON.toJSONString(list);
+    }
 }

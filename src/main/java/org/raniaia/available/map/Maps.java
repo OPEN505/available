@@ -20,6 +20,8 @@ package org.raniaia.available.map;
  * Creates on 2020/3/11.
  */
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -146,6 +148,10 @@ public final class Maps {
             count++;
         }
         return null;
+    }
+
+    public static String toString(Map map){
+        return JSON.toJSONString(map);
     }
 
 }

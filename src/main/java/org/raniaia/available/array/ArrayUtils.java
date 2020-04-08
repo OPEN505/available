@@ -69,4 +69,20 @@ public final class ArrayUtils {
         return str;
     }
 
+    /**
+     * 数组的{@code toString}方法
+     */
+    public static String toString(Object array,String delimiter) {
+        if (!isArray(array)) {
+            throw new Error("parameter object not array.");
+        }
+        Object[] array0 = toArray(array);
+        String str = "[";
+        for (Object o : array0) {
+            str += o + delimiter;
+        }
+        str = str.substring(0, str.length() - 1) + "]";
+        return str;
+    }
+
 }
