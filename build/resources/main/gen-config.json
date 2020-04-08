@@ -1,0 +1,37 @@
+{
+  "datasource": {
+    "url": "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT",
+    "driver": "com.mysql.cj.jdbc.Driver",
+    "username": "root",
+    "password": "root"
+  },
+  "template": {
+    "service": {
+      "gen-path": "/service"
+    },
+    "serviceImpl": {
+      "gen-path": "/service/impl"
+    },
+    "controller": {
+      "gen-path": "/controller"
+    },
+    "java_bean": {
+      "gen-path": "/vo"
+    },
+    "java_mapper": {
+      "gen-path": "/mapper"
+    },
+    "mapper_xml": {
+      "gen-path": "/resources/mapper"
+    },
+    "rest_controller": {
+      "gen-path": "/controller/api",
+      "template-path": "/resources/RestController.java.ftl"
+    }
+  },
+  "comment": {
+      "author": "TianSheng",
+      "date": "yyyy-MM-dd HH:ss:mm"
+  }
+
+}

@@ -110,7 +110,7 @@ public class StringUtils {
      * @param builder
      */
     public static String clear(StringBuilder builder) {
-        String v = builder.toString().trim();
+        String v = builder.toString();
         builder.delete(0, builder.length());
         return v;
     }
