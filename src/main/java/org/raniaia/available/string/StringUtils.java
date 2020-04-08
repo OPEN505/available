@@ -264,5 +264,21 @@ public class StringUtils {
         return builder.toString();
     }
 
+    public static String newString(char[] input){
+        return new String(input);
+    }
+
+    public static String newString(String input){
+        return new String(input);
+    }
+
+    public static String newString(String[] inputs){
+        StringBuilder builder = new StringBuilder();
+        for (String input : inputs) {
+            builder.append(input);
+        }
+        return builder.toString();
+    }
+
 }
 
