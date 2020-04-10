@@ -39,4 +39,12 @@ public class Threads {
         return Class.forName(classname);
     }
 
+    /**
+     * 获取调用者的类加载器
+     * @return
+     */
+    public static ClassLoader getCallerLoader() {
+        return getCaller().getClassLoader();
+    }
+
 }

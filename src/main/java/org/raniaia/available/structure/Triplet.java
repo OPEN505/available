@@ -1,4 +1,4 @@
-package org.raniaia.available;
+package org.raniaia.available.structure;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
@@ -17,18 +17,25 @@ package org.raniaia.available;
  */
 
 /*
- * Creates on 2020/3/23.
+ * Creates on 2020/4/9.
  */
-
-import java.util.Objects;
 
 /**
- * 操作常量。
+ * 三元组
  * @author tiansheng
  */
-public interface OpCodes {
+public class Triplet<V1,V2,V3> {
 
-    String          CLASSPATH            = "classpath:";
-    String          USER_DIR             = System.getProperty("user.dir");
+	private V1 v1;
+
+	private V2 v2;
+
+	private V3 v3;
+
+	public V1 getValue0(){return this.v1;}
+
+	public V2 getValue1(){return this.v2;}
+
+	public V3 getValue2(){return this.v3;}
 
 }

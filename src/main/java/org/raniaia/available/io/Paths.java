@@ -35,8 +35,25 @@ public class Paths {
      * 将'classpath:'字符串替换成当前编译后类文件的根路径。
      */
     public static String toClasspath(String path){
+        return toClasspath(path,Threads.getCaller());
+    }
+
+    /**
+     * 将'classpath:'字符串替换成当前编译后类文件的根路径。
+     */
+    public static String toClasspath(String path,Class<?> clazz){
         if(Objects.requireNonNull(path,"path cannot null.").contains("classpath:")){
-            path = path.replace("classpath:",getClasspath());
+            path = path.replace("classpath:",getClasspath(clazz));
+        }
+        return path.replaceAll("\\\\","/");
+    }
+
+    /**
+     * 将'classpath:'字符串替换成当前编译后类文件的根路径。
+     */
+    public static String toClasspath(String path,ClassLoader loader){
+        if(Objects.requireNonNull(path,"path cannot null.").contains("classpath:")){
+            path = path.replace("classpath:",getClasspath(loader));
         }
         return path.replaceAll("\\\\","/");
     }
@@ -45,7 +62,25 @@ public class Paths {
      * 获取当前classpath的路径
      */
     public static String getClasspath(){
-        return Threads.getCaller().getClassLoader().getResource("").getFile();
+        return getClasspath(Threads.getCallerLoader());
+    }
+
+    /**
+     * 获取当前classpath的路径
+     */
+    public static String getClasspath(ClassLoader loader){
+        return loader != null
+                ? loader.getResource("").getFile()
+                : Threads.getCallerLoader().getResource("").getFile();
+    }
+
+    /**
+     * 获取当前classpath的路径
+     */
+    public static String getClasspath(Class<?> clazz){
+        return clazz != null
+                ? clazz.getResource("").getFile()
+                : Threads.getCallerLoader().getResource("").getFile();
     }
 
 }

@@ -23,6 +23,7 @@ package org.raniaia.available.string;
 import org.raniaia.available.io.IOUtils;
 import org.raniaia.available.io.file.Files;
 import org.raniaia.available.list.Lists;
+import org.raniaia.available.thread.Threads;
 
 import java.io.*;
 import java.util.Arrays;
@@ -43,6 +44,18 @@ public class LineReader {
     public LineReader(String path) throws IOException {
         this(new BufferedReader(new InputStreamReader(
                 Files.newFileInputStream(path)
+        )));
+    }
+
+    public LineReader(String path,Class<?> clazz) throws IOException {
+        this(new BufferedReader(new InputStreamReader(
+                Files.newFileInputStream(path,clazz)
+        )));
+    }
+
+    public LineReader(String path,ClassLoader loader) throws IOException {
+        this(new BufferedReader(new InputStreamReader(
+                Files.newFileInputStream(path,loader)
         )));
     }
 

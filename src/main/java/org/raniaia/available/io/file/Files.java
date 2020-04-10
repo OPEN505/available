@@ -176,6 +176,22 @@ public class Files {
     }
 
     /**
+     * 通过{@code path}实例创建新的{@code FileInputStream}对象实例。
+     */
+    @SneakyThrows
+    public static FileInputStream newFileInputStream(String path, Class<?> target) {
+        return new FileInputStream(Paths.toClasspath(path,target));
+    }
+
+    /**
+     * 通过{@code path}实例创建新的{@code FileInputStream}对象实例。
+     */
+    @SneakyThrows
+    public static FileInputStream newFileInputStream(String path, ClassLoader loader) {
+        return new FileInputStream(Paths.toClasspath(path,loader));
+    }
+
+    /**
      * 获取文件名后缀
      */
     public static String getSuffix(File file){
@@ -183,7 +199,8 @@ public class Files {
     }
 
     public static String getSuffix(String name){
-        return name.substring(name.lastIndexOf(".") + 1);
+        int indexof = name.lastIndexOf(".");
+        return indexof == -1 ? null : name.substring(indexof + 1);
     }
 
 }

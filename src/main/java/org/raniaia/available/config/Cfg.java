@@ -24,6 +24,7 @@ import org.raniaia.available.io.Paths;
 import org.raniaia.available.map.Maps;
 import org.raniaia.available.string.LineReader;
 import org.raniaia.available.string.StringUtils;
+import org.raniaia.available.thread.Threads;
 
 import java.io.*;
 import java.util.Hashtable;
@@ -65,13 +66,26 @@ public class Cfg {
     public Cfg(){}
 
     public Cfg(String path) throws IOException {
-        load(path);
+        load(new LineReader(path));
     }
 
-    public void load(String path) throws IOException {
+    public Cfg(String path,Class<?> clazz) throws IOException {
+        if(clazz == null){
+            clazz = Threads.getCaller();
+        }
+        load(new LineReader(path,clazz));
+    }
+
+    public Cfg(String path,ClassLoader loader) throws IOException {
+        if(loader == null){
+            loader = Threads.getCallerLoader();
+        }
+        load(new LineReader(path,loader));
+    }
+
+    public void load(LineReader reader) throws IOException {
         String root = null;
         Map<String,Object> kv = Maps.newHashMap();
-        LineReader reader = new LineReader(path);
         while (reader.ready()){
             String value = reader.readLine();
             if(StringUtils.isEmpty(value)){
