@@ -41,10 +41,6 @@ public class Files {
         return new File(Paths.toClasspath(path));
     }
 
-    public static void main(String[] args) {
-        newFile("a");
-    }
-
     /**
      * 创建一个可变的{@code File}对象示例。
      * 根据 <b>uri#URI</b>去创建。
@@ -52,6 +48,7 @@ public class Files {
     public static File newFile(URI uri) {
         return new File(uri);
     }
+
     /**
      * 创建一个可变的{@code File}对象示例。
      * 根据 < <b>url#URL</b>去创建。
@@ -130,14 +127,14 @@ public class Files {
      * 创建一个新的{@code FileWrite}对象实例。该方法将判断路径是否存在。如果不存在，将创建目录和文件。
      */
     @SneakyThrows
-    public static FileWriter newFileWrite(String path,String filename){
+    public static FileWriter newFileWrite(String path, String filename) {
         path = Paths.toClasspath(path);
         File file0 = new File(path);
-        if(!file0.exists()){
+        if (!file0.exists()) {
             file0.mkdirs();
         }
         File file = new File(path.concat("/").concat(filename));
-        if(!file.exists()){
+        if (!file.exists()) {
             file.createNewFile();
         }
         return new FileWriter(file);
@@ -147,15 +144,15 @@ public class Files {
      * 按路径创建一个新的{@code FileWrite}对象实例，并{@code append}。
      */
     @SneakyThrows
-    public static FileWriter newFileWrite(String path,boolean append){
-        return new FileWriter(Paths.toClasspath(path),append);
+    public static FileWriter newFileWrite(String path, boolean append) {
+        return new FileWriter(Paths.toClasspath(path), append);
     }
 
     /**
      * 通过{@code File}实例创建新的{@code FileWrite}对象实例。
      */
     @SneakyThrows
-    public static FileWriter newFileWrite(File file){
+    public static FileWriter newFileWrite(File file) {
         return new FileWriter(file);
     }
 
@@ -180,7 +177,7 @@ public class Files {
      */
     @SneakyThrows
     public static FileInputStream newFileInputStream(String path, Class<?> target) {
-        return new FileInputStream(Paths.toClasspath(path,target));
+        return new FileInputStream(Paths.toClasspath(path, target));
     }
 
     /**
@@ -188,19 +185,57 @@ public class Files {
      */
     @SneakyThrows
     public static FileInputStream newFileInputStream(String path, ClassLoader loader) {
-        return new FileInputStream(Paths.toClasspath(path,loader));
+        return new FileInputStream(Paths.toClasspath(path, loader));
     }
 
     /**
      * 获取文件名后缀
      */
-    public static String getSuffix(File file){
+    public static String getSuffix(File file) {
         return getSuffix(file.getName());
     }
 
-    public static String getSuffix(String name){
+    /**
+     * 根据文件名称获取文件后缀名
+     */
+    public static String getSuffix(String name) {
         int indexof = name.lastIndexOf(".");
         return indexof == -1 ? null : name.substring(indexof + 1);
+    }
+
+    /**
+     * 将文件转换成字节码
+     * @param file
+     * @return
+     */
+    public static byte[] fileToBytes(File file) {
+        try {
+            FileInputStream in = newFileInputStream(file);
+            //当文件没有结束时，每次读取一个字节显示
+            byte[] data = new byte[in.available()];
+            in.read(data);
+            in.close();
+            return data;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 将字节码转换成文件
+     *
+     * @param file
+     * @param bytes
+     */
+    public static void bytesToFile(File file,byte[] bytes) {
+        try{
+            FileOutputStream out = new FileOutputStream(file);
+            out.write(bytes);
+            out.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }
