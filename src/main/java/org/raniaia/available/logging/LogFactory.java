@@ -85,9 +85,4 @@ public class LogFactory {
         }
     }
 
-    public static void main(String[] args) {
-        Log log = LogFactory.getLog(LogFactory.class);
-        log.info("log test...");
-    }
-
 }
