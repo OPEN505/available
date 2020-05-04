@@ -22,6 +22,7 @@ package org.raniaia.available.logging;
 
 import org.raniaia.available.exception.LogException;
 import org.raniaia.available.logging.slf4j.Slf4jLogAdapter;
+import org.raniaia.available.logging.stdnop.StdLogAdapter;
 
 import java.lang.reflect.Constructor;
 
@@ -34,6 +35,7 @@ public class LogFactory {
 
     static {
         tryFindLogImplementation(LogFactory::useSlf4jAdapterLogging);
+        tryFindLogImplementation(LogFactory::useStdAdapterLogging);
     }
 
     public static Log getLog(Class<?> key) {
@@ -64,6 +66,10 @@ public class LogFactory {
         setLogImpalementation(Slf4jLogAdapter.class);
     }
 
+    private static void useStdAdapterLogging() {
+        setLogImpalementation(StdLogAdapter.class);
+    }
+
     private static void setLogImpalementation(Class<? extends LogAdapter> implClass) {
         try {
             Constructor<? extends LogAdapter> constructor =implClass.getConstructor();
@@ -72,8 +78,8 @@ public class LogFactory {
                 System.err.println("STD PRINT: " + log.getClass() + " is bad, refidn.");
                 return;
             }
-            log.debug("Logger useing '" + implClass + "' adapter.");
             logAdapterConstructor = constructor;
+            log.debug("Logger useing '" + implClass + "' adapter.");
         } catch (Throwable e) {
             // 忽略异常
         }
