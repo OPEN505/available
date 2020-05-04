@@ -1,7 +1,7 @@
-package org.raniaia.available.logging;
+package org.raniaia.available.logging.stdnop;
 
 /*
- * Copyright (C) 2020 Tiansheng All rights reserved.
+ * Copyright (C) 2020 tiansheng All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,38 +17,24 @@ package org.raniaia.available.logging;
  */
 
 /*
- * Creates on 2020/5/4.
+ * Creates on 2020/3/27.
  */
+
+import org.raniaia.available.logging.Log;
+import org.raniaia.available.logging.LogAdapter;
 
 /**
  * @author tiansheng
  */
-public interface Log {
+public class StdLogAdapter implements LogAdapter {
 
-    /**
-     * 判断当前Log实现类是不是坏的
-     */
-    boolean isBad();
+    @Override
+    public Log getLog(String key) {
+        return new StdLog(key);
+    }
 
-    /**
-     * 判断当前是否开启了debug模式
-     */
-    boolean isDebugEnabled();
-
-    void info(String msg);
-
-    void debug(String msg);
-
-    void warn(String msg);
-
-    void error(String msg);
-
-    void info(String msg, Throwable e);
-
-    void debug(String msg, Throwable e);
-
-    void warn(String msg, Throwable e);
-
-    void error(String msg, Throwable e);
-
+    @Override
+    public Log getLog(Class<?> key) {
+        return new StdLog(key);
+    }
 }
