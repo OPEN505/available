@@ -21,6 +21,7 @@ dependencies {
     implementation 'junit:junit:4.13-rc-2'
     implementation 'com.alibaba:fastjson:1.2.66'
     implementation 'org.projectlombok:lombok:1.18.10'
+    implementation 'org.slf4j:slf4j-api:1.7.21'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
 }
 

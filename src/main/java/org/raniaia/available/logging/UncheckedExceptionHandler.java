@@ -1,4 +1,4 @@
-package org.raniaia.available.log;
+package org.raniaia.available.logging;
 
 /*
  * Copyright (C) 2020 Tiansheng All rights reserved.
