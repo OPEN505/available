@@ -27,6 +27,8 @@ import org.raniaia.available.logging.stdnop.StdLogAdapter;
 import java.lang.reflect.Constructor;
 
 /**
+ * 根据每种日志的优先级来进行先后的选择
+ *
  * @author tiansheng
  */
 public class LogFactory {
@@ -47,7 +49,7 @@ public class LogFactory {
         try {
             log = logAdapterConstructor.newInstance().getLog(key);
         } catch (Exception e) {
-            throw new LogException("Error creates logger for logger " + key + " . Cause: " + e, e);
+            throw new LogException("创建 " + key + " LOG失败，因为: " + e, e);
         }
         return log;
     }
@@ -75,11 +77,11 @@ public class LogFactory {
             Constructor<? extends LogAdapter> constructor =implClass.getConstructor();
             Log log = constructor.newInstance().getLog(LogFactory.class);
             if(log.isBad()) {
-                System.err.println("STD PRINT: " + log.getClass() + " is bad, refidn.");
+                System.err.println("SERR PRINT: " + log.getClass() + " 日子不可用, 重新查找。");
                 return;
             }
             logAdapterConstructor = constructor;
-            log.debug("Logger useing '" + implClass + "' adapter.");
+            log.debug("使用 '" + implClass + "' Adapter.");
         } catch (Throwable e) {
             // 忽略异常
         }

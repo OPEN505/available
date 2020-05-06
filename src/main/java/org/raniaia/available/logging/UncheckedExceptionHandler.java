@@ -80,13 +80,4 @@ public class UncheckedExceptionHandler implements Thread.UncaughtExceptionHandle
         }
     }
 
-    public static void main(String[] args) {
-        new UncheckedExceptionHandler().init();
-        int[] a = new int[1];
-        a[0] = 0;
-        a[1] = 1;
-        a[2] = 2;
-        a[3] = 3;
-    }
-
 }
