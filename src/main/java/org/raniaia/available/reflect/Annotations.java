@@ -24,6 +24,8 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.AccessibleObject;
 
 /**
+ * 注解工具类
+ *
  * @author tiansheng
  */
 public class Annotations {

@@ -29,7 +29,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * Method static tools class.
+ * 方法的静态工具类
  *
  * @author tiansheng
  * @since 8
@@ -113,10 +113,16 @@ public class Methods {
     }
 
 
+    /**
+     * 设置方法访问参数
+     */
     public static void setAccessible(Method method) {
         method.setAccessible(true);
     }
 
+    /**
+     * 设置方法访问参数
+     */
     public static void setAccessible(Method method, boolean flag) {
         method.setAccessible(flag);
     }

@@ -25,6 +25,8 @@ import lombok.SneakyThrows;
 import java.lang.reflect.Constructor;
 
 /**
+ * 类的静态工具类
+ *
  * @author tiansheng
  */
 public class ClassUtils {
