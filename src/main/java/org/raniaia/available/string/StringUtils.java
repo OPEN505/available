@@ -35,18 +35,18 @@ public class StringUtils {
 	 * @return 返回boolean
 	 */
 	public static boolean isEmpty(String s) {
-		if (s == null) {
-			return true;
-		}
-		// Unicode 编码下的空格
-		if ("\u0000".equals(s)) {
-			return true;
-		}
-		return s.length() == 0 || " ".equals(s);
+		return s == null       || "\u0000".equals(s) ||
+			   s.length() == 0 || " ".equals(s);
 	}
 
+	/**
+	 * 判断是不是null字符，或者是空
+	 *
+	 * @param input
+	 * @return
+	 */
 	public static boolean isNull(String input) {
-		return "null".equals(input);
+		return input == null || "null".equals(input);
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * 获取一个字符串的开始位置和结束位置
+	 * 获取一个字符串的首个开始位置和结束位置
 	 *
 	 * @param v         源字符串
 	 * @param find      需要查找的字符串
@@ -272,14 +272,23 @@ public class StringUtils {
 		return builder.toString();
 	}
 
+	/**
+	 * 将char数组转换为字符串
+	 */
 	public static String newString(char[] input) {
 		return new String(input);
 	}
 
+	/**
+	 * 深拷贝一个String对象
+	 */
 	public static String newString(String input) {
-		return new String(input);
+		return input.trim();
 	}
 
+	/**
+	 * 将String数组合并成单个String字符串
+	 */
 	public static String newString(String[] inputs) {
 		StringBuilder builder = new StringBuilder();
 		for (String input : inputs) {

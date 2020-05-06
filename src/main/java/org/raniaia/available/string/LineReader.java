@@ -30,6 +30,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 读取数据，按行号读取
+ * 
  * @author tiansheng
  */
 public class LineReader {

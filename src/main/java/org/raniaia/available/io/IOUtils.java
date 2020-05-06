@@ -33,13 +33,17 @@ public class IOUtils {
     /**
      * 从InputStream中读取数据到
      */
-    public static String getString(InputStream input){
+    public static String getString(InputStream input) {
+        return getString(input,"UTF-8");
+    }
+
+    public static String getString(InputStream input, String charset){
         if(input == null) throw new NullPointerException();
         final int size = 1024;
         final char[] buffer = new char[size];
         final StringBuilder out = new StringBuilder();
         try {
-            Reader reader = new InputStreamReader(input, "UTF-8");
+            Reader reader = new InputStreamReader(input, charset);
             while(true){
                 int rsz = reader.read(buffer,0,size);
                 if(rsz < 0) break;
