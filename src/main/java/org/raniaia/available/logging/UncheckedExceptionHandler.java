@@ -27,6 +27,7 @@ import java.util.Date;
 
 /**
  * 全局异常捕获，只捕捉并打印异常但不会对异常进行处理。
+ * 如果异常已经被捕获了那么UncheckedException将不会对它进行捕捉。
  *
  * @author tiansheng
  */
