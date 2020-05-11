@@ -15,7 +15,7 @@
 
     <groupId>com.raniaia</groupId>
     <artifactId>available</artifactId>
-    <version>1.0.0.FIRST</version>
+    <version>1p1</version>
     <packaging>jar</packaging>
 
     <dependencies>
