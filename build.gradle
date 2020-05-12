@@ -25,6 +25,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
 }
 
-group = 'com.raniaia'
+group = 'com.appcuver'
 version = '1.0.0'
 sourceCompatibility = '1.8'
